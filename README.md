@@ -251,7 +251,7 @@ Créditos
 Contribuição
 ------------
 
-#### [Agende Tecnologias](http://agende.com.br/ "Agende Tecnologias")
+#### [Átrio Softwares](http://atriosoftwares.com.br/ "Átrio Softwares")
 
 ##### Desenvolvedores:
 

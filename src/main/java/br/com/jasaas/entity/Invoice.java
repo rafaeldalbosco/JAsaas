@@ -55,6 +55,8 @@ public class Invoice extends AsaasEntity<String> {
     @Expose
     private String municipalServiceName;
     @Expose
+    private IbsCbs ibsCbs;
+    @Expose
     private Taxes taxes;
 
     public Invoice() {
@@ -64,7 +66,7 @@ public class Invoice extends AsaasEntity<String> {
                    String statusDescription, String serviceDescription, String pdfUrl, String xmlUrl, String rpsSerie,
                    String rpsNumber, String number, String validationCode, BigDecimal value, BigDecimal deductions,
                    Date effectiveDate, String externalReference, String observations, String estimatedTaxesDescription,
-                   String municipalServiceId, String municipalServiceCode, String municipalServiceName, Taxes taxes) {
+                   String municipalServiceId, String municipalServiceCode, String municipalServiceName, IbsCbs ibsCbs, Taxes taxes) {
         this.id = id;
         this.status = status;
         this.customer = customer;
@@ -88,6 +90,7 @@ public class Invoice extends AsaasEntity<String> {
         this.municipalServiceId = municipalServiceId;
         this.municipalServiceCode = municipalServiceCode;
         this.municipalServiceName = municipalServiceName;
+        this.ibsCbs = ibsCbs;
         this.taxes = taxes;
     }
     @Override
@@ -273,6 +276,14 @@ public class Invoice extends AsaasEntity<String> {
 
     public void setMunicipalServiceName(String municipalServiceName) {
         this.municipalServiceName = municipalServiceName;
+    }
+
+    public IbsCbs getIbsCbs() {
+        return ibsCbs;
+    }
+
+    public void setIbsCbs(IbsCbs ibsCbs) {
+        this.ibsCbs = ibsCbs;
     }
 
     public Taxes getTaxes() {

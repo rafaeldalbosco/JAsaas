@@ -1,5 +1,6 @@
 package br.com.jasaas;
 
+import br.com.jasaas.entity.IbsCbs;
 import br.com.jasaas.entity.Invoice;
 import br.com.jasaas.entity.MunicipalService;
 import br.com.jasaas.util.JsonUtil;
@@ -14,6 +15,8 @@ public class InvoiceTest extends br.com.jasaas.teste.JAsaasTest {
         init();
         String exampleJson = "{  \"payment\": \"pay_637959110194\",  \"installment\": null,  \"serviceDescription\": \"Nota fiscal da Fatura 101940. \nDescrição dos Serviços: ANÁLISE E DESENVOLVIMENTO DE SISTEMAS\",  \"observations\": \"Mensal referente aos trabalhos de Junho.\",  \"value\": 300,  \"deductions\": 0,  \"effectiveDate\": \"2018-07-03\",  \"externalReference\": null,  \"taxes\": {    \"retainIss\": false,    \"iss\": 3,    \"cofins\": 3,    \"csll\": 1,    \"inss\": 0,    \"ir\": 1.5,    \"pis\": 0.65  },  \"municipalServiceId\": null,  \"municipalServiceCode\": \"1.01\",  \"municipalServiceName\": \"Análise e desenvolvimento de sistemas\"}";
         Invoice invoice = (Invoice) JsonUtil.parse(exampleJson, Invoice.class);
+        //https://docs.asaas.com/docs/adequando-sua-integra%C3%A7%C3%A3o-%C3%A0-reforma-tribut%C3%A1ria
+        invoice.setIbsCbs(new IbsCbs("1.0101", "01.01.01", "011", "011003", "030101"));
         invoice = asaas.invoice().schedule(invoice);
         Assert.assertNotNull(invoice);
     }
