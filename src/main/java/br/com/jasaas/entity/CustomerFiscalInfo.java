@@ -1,5 +1,6 @@
 package br.com.jasaas.entity;
 
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 public class CustomerFiscalInfo extends AsaasEntity {
@@ -84,7 +85,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setObject(String object) {
-        this.object = object;
+        this.object = StringUtils.removerAcentos(object);
     }
 
     public String getEmail() {
@@ -92,7 +93,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = StringUtils.removerAcentos(email);
     }
 
     public String getMunicipalInscription() {
@@ -100,7 +101,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setMunicipalInscription(String municipalInscription) {
-        this.municipalInscription = municipalInscription;
+        this.municipalInscription = StringUtils.removerAcentos(municipalInscription);
     }
 
     public String getStateInscription() {
@@ -108,7 +109,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setStateInscription(String stateInscription) {
-        this.stateInscription = stateInscription;
+        this.stateInscription = StringUtils.removerAcentos(stateInscription);
     }
 
     public Boolean getSimplesNacional() {
@@ -132,7 +133,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setCnae(String cnae) {
-        this.cnae = cnae;
+        this.cnae = StringUtils.removerAcentos(cnae);
     }
 
     public String getSpecialTaxRegime() {
@@ -140,7 +141,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setSpecialTaxRegime(String specialTaxRegime) {
-        this.specialTaxRegime = specialTaxRegime;
+        this.specialTaxRegime = StringUtils.removerAcentos(specialTaxRegime);
     }
 
     public String getServiceListItem() {
@@ -148,7 +149,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setServiceListItem(String serviceListItem) {
-        this.serviceListItem = serviceListItem;
+        this.serviceListItem = StringUtils.removerAcentos(serviceListItem);
     }
 
     public String getRpsSerie() {
@@ -156,7 +157,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setRpsSerie(String rpsSerie) {
-        this.rpsSerie = rpsSerie;
+        this.rpsSerie = StringUtils.removerAcentos(rpsSerie);
     }
 
     public Integer getRpsNumber() {
@@ -180,7 +181,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = StringUtils.removerAcentos(username);
     }
 
     public String getPassword() {
@@ -188,7 +189,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = StringUtils.removerAcentos(password);
     }
 
     public String getAccessToken() {
@@ -196,7 +197,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+        this.accessToken = StringUtils.removerAcentos(accessToken);
     }
 
     public String getCertificateFile() {
@@ -204,7 +205,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setCertificateFile(String certificateFile) {
-        this.certificateFile = certificateFile;
+        this.certificateFile = StringUtils.removerAcentos(certificateFile);
     }
 
     public String getCertificatePassword() {
@@ -212,7 +213,7 @@ public class CustomerFiscalInfo extends AsaasEntity {
     }
 
     public void setCertificatePassword(String certificatePassword) {
-        this.certificatePassword = certificatePassword;
+        this.certificatePassword = StringUtils.removerAcentos(certificatePassword);
     }
 
     public Boolean getPasswordSent() {

@@ -1,6 +1,7 @@
 package br.com.jasaas.entity;
 
 import br.com.jasaas.exception.CustomerException;
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 import java.util.Date;
@@ -86,7 +87,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param name Nome do cliente
      */
     public void setName(String name) {
-        this.name = name;
+        this.name = StringUtils.removerAcentos(name);
     }
 
     /**
@@ -100,7 +101,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param email Email do cliente
      */
     public void setEmail(String email) {
-        this.email = email;
+        this.email = StringUtils.removerAcentos(email);
     }
 
     /**
@@ -114,7 +115,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param phone Telefone do cliente. Formato: (00) 00000000
      */
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.phone = StringUtils.removerAcentos(phone);
     }
 
     /**
@@ -128,7 +129,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param mobilePhone Telefone celular do cliente. Formato: (00) 00000000
      */
     public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+        this.mobilePhone = StringUtils.removerAcentos(mobilePhone);
     }
 
     /**
@@ -142,7 +143,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param address Endereço do cliente (Rua, Av, etc)
      */
     public void setAddress(String address) {
-        this.address = address;
+        this.address = StringUtils.removerAcentos(address);
     }
 
     /**
@@ -156,7 +157,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param addressNumber Número do endereço
      */
     public void setAddressNumber(String addressNumber) {
-        this.addressNumber = addressNumber;
+        this.addressNumber = StringUtils.removerAcentos(addressNumber);
     }
 
     /**
@@ -170,7 +171,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param complement Complemento do endereço
      */
     public void setComplement(String complement) {
-        this.complement = complement;
+        this.complement = StringUtils.removerAcentos(complement);
     }
 
     /**
@@ -184,7 +185,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param province Bairro do endereço
      */
     public void setProvince(String province) {
-        this.province = province;
+        this.province = StringUtils.removerAcentos(province);
     }
 
     /**
@@ -216,7 +217,7 @@ public final class Customer extends AsaasEntity<String> {
      * código do IBGE. Para cliente estrangeiro: nome da cidade
      */
     public void setCity(String city) {
-        this.city = city;
+        this.city = StringUtils.removerAcentos(city);
     }
 
     /**
@@ -234,7 +235,7 @@ public final class Customer extends AsaasEntity<String> {
      * estrangeiro: nome do estado
      */
     public void setState(String state) {
-        this.state = state;
+        this.state = StringUtils.removerAcentos(state);
     }
 
     /**
@@ -250,7 +251,7 @@ public final class Customer extends AsaasEntity<String> {
      * leitura. O valor padrão é Brasil. Para cliente estrangeiro: nome do país
      */
     public void setCountry(String country) {
-        this.country = country;
+        this.country = StringUtils.removerAcentos(country);
     }
 
     /**
@@ -264,7 +265,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param postalCode Código postal (CEP)
      */
     public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+        this.postalCode = StringUtils.removerAcentos(postalCode);
     }
 
     /**
@@ -278,7 +279,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param cpfCnpj CPF ou CNPJ do cliente (somente números)
      */
     public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
+        this.cpfCnpj = StringUtils.removerAcentos(cpfCnpj);
     }
 
     public Date getDateCreated() {
@@ -296,7 +297,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param externalReference Campo livre, pode ser usado para pesquisa.
      */
     public void setExternalReference(String externalReference) {
-        this.externalReference = externalReference;
+        this.externalReference = StringUtils.removerAcentos(externalReference);
     }
 
     /**
@@ -314,7 +315,7 @@ public final class Customer extends AsaasEntity<String> {
      * cobrança separados por ","
      */
     public void setAdditionalEmails(String additionalEmails) {
-        this.additionalEmails = additionalEmails;
+        this.additionalEmails = StringUtils.removerAcentos(additionalEmails);
     }
 
     /**
@@ -330,7 +331,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param municipalInscription Inscrição municipal do cliente
      */
     public void setMunicipalInscription(String municipalInscription) {
-        this.municipalInscription = municipalInscription;
+        this.municipalInscription = StringUtils.removerAcentos(municipalInscription);
     }
 
     /**
@@ -346,7 +347,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param stateInscription Inscrição estadual do cliente
      */
     public void setStateInscription(String stateInscription) {
-        this.stateInscription = stateInscription;
+        this.stateInscription = StringUtils.removerAcentos(stateInscription);
     }
 
     /**
@@ -362,7 +363,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param observations Observações adicionais
      */
     public void setObservations(String observations) {
-        this.observations = observations;
+        this.observations = StringUtils.removerAcentos(observations);
     }
 
      /**
@@ -378,7 +379,7 @@ public final class Customer extends AsaasEntity<String> {
      * @param groupName Nome do grupo ao qual o cliente pertence
      */
     public void setGroupName(String groupName) {
-        this.groupName = groupName;
+        this.groupName = StringUtils.removerAcentos(groupName);
     }
 
     @Override

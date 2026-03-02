@@ -1,6 +1,7 @@
 package br.com.jasaas.entity;
 
 import br.com.jasaas.enumeration.PIsCofinsRetentionType;
+import br.com.jasaas.util.StringUtils;
 import br.com.jasaas.enumeration.PisCofinsTaxStatus;
 import com.google.gson.annotations.Expose;
 
@@ -60,7 +61,7 @@ public class Taxes {
     }
 
     public void setNbsCode(String nbsCode) {
-        this.nbsCode = nbsCode;
+        this.nbsCode = StringUtils.removerAcentos(nbsCode);
     }
 
     public String getTaxSituationCode() {
@@ -68,7 +69,7 @@ public class Taxes {
     }
 
     public void setTaxSituationCode(String taxSituationCode) {
-        this.taxSituationCode = taxSituationCode;
+        this.taxSituationCode = StringUtils.removerAcentos(taxSituationCode);
     }
 
     public String getTaxClassificationCode() {
@@ -76,7 +77,7 @@ public class Taxes {
     }
 
     public void setTaxClassificationCode(String taxClassificationCode) {
-        this.taxClassificationCode = taxClassificationCode;
+        this.taxClassificationCode = StringUtils.removerAcentos(taxClassificationCode);
     }
 
     public String getOperationIndicatorCode() {
@@ -84,7 +85,7 @@ public class Taxes {
     }
 
     public void setOperationIndicatorCode(String operationIndicatorCode) {
-        this.operationIndicatorCode = operationIndicatorCode;
+        this.operationIndicatorCode = StringUtils.removerAcentos(operationIndicatorCode);
     }
 
     public Boolean getRetainIss() {
