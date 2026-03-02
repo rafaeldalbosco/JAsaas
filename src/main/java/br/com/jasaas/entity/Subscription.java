@@ -2,6 +2,7 @@ package br.com.jasaas.entity;
 
 import br.com.jasaas.enumeration.BillingType;
 import br.com.jasaas.enumeration.Cycle;
+import br.com.jasaas.util.StringUtils;
 import br.com.jasaas.enumeration.SubscriptionStatus;
 import com.google.gson.annotations.Expose;
 
@@ -157,7 +158,7 @@ public final class Subscription extends AsaasEntity<String> {
      * @param description Descrição da assinatura
      */
     public void setDescription(String description) {
-        this.description = description;
+        this.description = StringUtils.removerAcentos(description);
     }
 
     /**

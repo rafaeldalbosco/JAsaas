@@ -1,5 +1,6 @@
 package br.com.jasaas.entity;
 
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 /**
@@ -40,7 +41,7 @@ public class CreditCard {
      * @param holderName Nome impresso no cartão
      */
     public void setHolderName(String holderName) {
-        this.holderName = holderName;
+        this.holderName = StringUtils.removerAcentos(holderName);
     }
 
     /**

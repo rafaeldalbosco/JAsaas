@@ -5,6 +5,7 @@
  */
 package br.com.jasaas.entity;
 
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 /**
@@ -31,7 +32,7 @@ public class Erro {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = StringUtils.removerAcentos(description);
     }
 
     @Override

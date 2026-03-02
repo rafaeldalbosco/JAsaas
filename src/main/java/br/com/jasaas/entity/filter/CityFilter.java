@@ -1,5 +1,7 @@
 package br.com.jasaas.entity.filter;
 
+import br.com.jasaas.util.StringUtils;
+
 /**
  *
  * @author bosco
@@ -46,7 +48,7 @@ public class CityFilter {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = StringUtils.removerAcentos(name);
     }
 
     public Integer getDistrictCode() {
@@ -62,7 +64,7 @@ public class CityFilter {
     }
 
     public void setDistrict(String district) {
-        this.district = district;
+        this.district = StringUtils.removerAcentos(district);
     }
 
     public String getState() {
@@ -70,7 +72,7 @@ public class CityFilter {
     }
 
     public void setState(String state) {
-        this.state = state;
+        this.state = StringUtils.removerAcentos(state);
     }
 
     }

@@ -1,5 +1,7 @@
 package br.com.jasaas.entity.filter;
 
+import br.com.jasaas.util.StringUtils;
+
 /**
  *
  * @author bosco
@@ -36,7 +38,7 @@ public class PaymentFilter {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = StringUtils.removerAcentos(description);
     }
 
     public String getCustomer() {

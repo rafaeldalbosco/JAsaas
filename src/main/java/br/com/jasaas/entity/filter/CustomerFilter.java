@@ -1,5 +1,7 @@
 package br.com.jasaas.entity.filter;
 
+import br.com.jasaas.util.StringUtils;
+
 /**
  *
  * @author bosco name - Filtra os clientes por nome ou email hasOverduePayments
@@ -34,7 +36,7 @@ public class CustomerFilter {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = StringUtils.removerAcentos(name);
     }
 
     public String getEmail() {
@@ -42,7 +44,7 @@ public class CustomerFilter {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = StringUtils.removerAcentos(email);
     }
 
     public String getCpfCnpj() {
@@ -50,7 +52,7 @@ public class CustomerFilter {
     }
 
     public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
+        this.cpfCnpj = StringUtils.removerAcentos(cpfCnpj);
     }
 
     public String getGroupName() {
@@ -58,7 +60,7 @@ public class CustomerFilter {
     }
 
     public void setGroupName(String groupName) {
-        this.groupName = groupName;
+        this.groupName = StringUtils.removerAcentos(groupName);
     }
 
     public Boolean getHasOverduePayments() {

@@ -3,6 +3,7 @@ package br.com.jasaas.entity;
 import br.com.jasaas.enumeration.BillingType;
 import br.com.jasaas.enumeration.PaymentStatus;
 import br.com.jasaas.exception.PaymentException;
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 import java.math.BigDecimal;
@@ -293,7 +294,7 @@ public final class Payment extends AsaasEntity<String> {
 	 * @param description Descrição da cobrança
 	 */
 	public void setDescription(String description) {
-		this.description = description;
+		this.description = StringUtils.removerAcentos(description);
 	}
 
 	/**

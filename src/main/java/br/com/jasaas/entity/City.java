@@ -1,5 +1,6 @@
 package br.com.jasaas.entity;
 
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 
@@ -55,7 +56,7 @@ public final class City extends AsaasEntity<Integer> {
      * @param name Nome do município
      */
     public void setName(String name) {
-        this.name = name;
+        this.name = StringUtils.removerAcentos(name);
     }
 
     /**
@@ -83,7 +84,7 @@ public final class City extends AsaasEntity<Integer> {
      * @param district Nome do distrito
      */
     public void setDistrict(String district) {
-        this.district = district;
+        this.district = StringUtils.removerAcentos(district);
     }
 
     /**
@@ -97,7 +98,7 @@ public final class City extends AsaasEntity<Integer> {
      * @param state Sigla do estado da cidade
      */
     public void setState(String state) {
-        this.state = state;
+        this.state = StringUtils.removerAcentos(state);
     }
 
     @Override

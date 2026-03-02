@@ -1,5 +1,6 @@
 package br.com.jasaas.entity;
 
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 public class SpecialTaxRegime {
@@ -21,7 +22,7 @@ public class SpecialTaxRegime {
     }
 
     public void setLabel(String label) {
-        this.label = label;
+        this.label = StringUtils.removerAcentos(label);
     }
 
     public String getValue() {
@@ -29,6 +30,6 @@ public class SpecialTaxRegime {
     }
 
     public void setValue(String value) {
-        this.value = value;
+        this.value = StringUtils.removerAcentos(value);
     }
 }

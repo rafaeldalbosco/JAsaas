@@ -1,5 +1,6 @@
 package br.com.jasaas.entity;
 
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 /**
@@ -39,7 +40,7 @@ public class CreditCardHolderInfo {
      * @param name Nome do titular do cartão
      */
     public void setName(String name) {
-        this.name = name;
+        this.name = StringUtils.removerAcentos(name);
     }
 
     /**
@@ -55,7 +56,7 @@ public class CreditCardHolderInfo {
      * @param email Email do titular do cartão
      */
     public void setEmail(String email) {
-        this.email = email;
+        this.email = StringUtils.removerAcentos(email);
     }
 
     /**
@@ -71,7 +72,7 @@ public class CreditCardHolderInfo {
      * @param cpfCnpj CPF ou CNPJ do titular do cartão
      */
     public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
+        this.cpfCnpj = StringUtils.removerAcentos(cpfCnpj);
     }
 
     /**
@@ -119,7 +120,7 @@ public class CreditCardHolderInfo {
      * @param addressComplement Complemento do endereço do titular do cartão
      */
     public void setAddressComplement(String addressComplement) {
-        this.addressComplement = addressComplement;
+        this.addressComplement = StringUtils.removerAcentos(addressComplement);
     }
 
     /**

@@ -2,6 +2,7 @@ package br.com.jasaas.entity;
 
 import br.com.jasaas.enumeration.CompanyType;
 import br.com.jasaas.enumeration.PersonType;
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 import java.math.BigDecimal;
@@ -105,7 +106,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = StringUtils.removerAcentos(name);
     }
 
     public String getEmail() {
@@ -113,7 +114,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = StringUtils.removerAcentos(email);
     }
 
     public String getLoginEmail() {
@@ -121,7 +122,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setLoginEmail(String loginEmail) {
-        this.loginEmail = loginEmail;
+        this.loginEmail = StringUtils.removerAcentos(loginEmail);
     }
 
     public String getCpfCnpj() {
@@ -129,7 +130,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
+        this.cpfCnpj = StringUtils.removerAcentos(cpfCnpj);
     }
 
     public Date getBirthDate() {
@@ -153,7 +154,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.phone = StringUtils.removerAcentos(phone);
     }
 
     public String getMobilePhone() {
@@ -161,7 +162,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+        this.mobilePhone = StringUtils.removerAcentos(mobilePhone);
     }
 
     public String getSite() {
@@ -185,7 +186,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address = StringUtils.removerAcentos(address);
     }
 
     public String getAddressNumber() {
@@ -193,7 +194,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setAddressNumber(String addressNumber) {
-        this.addressNumber = addressNumber;
+        this.addressNumber = StringUtils.removerAcentos(addressNumber);
     }
 
     public String getComplement() {
@@ -201,7 +202,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setComplement(String complement) {
-        this.complement = complement;
+        this.complement = StringUtils.removerAcentos(complement);
     }
 
     public String getProvince() {
@@ -209,7 +210,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setProvince(String province) {
-        this.province = province;
+        this.province = StringUtils.removerAcentos(province);
     }
 
     public String getPostalCode() {
@@ -217,7 +218,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+        this.postalCode = StringUtils.removerAcentos(postalCode);
     }
 
     public PersonType getPersonType() {
@@ -233,7 +234,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setCity(String city) {
-        this.city = city;
+        this.city = StringUtils.removerAcentos(city);
     }
 
     public String getState() {
@@ -241,7 +242,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setState(String state) {
-        this.state = state;
+        this.state = StringUtils.removerAcentos(state);
     }
 
     public String getCountry() {
@@ -249,7 +250,7 @@ public class Account extends AsaasEntity<String> {
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        this.country = StringUtils.removerAcentos(country);
     }
 
     public AccountNumber getAccountNumber() {

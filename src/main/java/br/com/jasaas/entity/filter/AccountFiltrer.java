@@ -1,5 +1,7 @@
 package br.com.jasaas.entity.filter;
 
+import br.com.jasaas.util.StringUtils;
+
 /**
  *
  * @author rafael
@@ -25,7 +27,7 @@ public class AccountFiltrer {
     }
 
     public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
+        this.cpfCnpj = StringUtils.removerAcentos(cpfCnpj);
     }
 
     public String getEmail() {
@@ -33,7 +35,7 @@ public class AccountFiltrer {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = StringUtils.removerAcentos(email);
     }
 
     public String getName() {
@@ -41,7 +43,7 @@ public class AccountFiltrer {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = StringUtils.removerAcentos(name);
     }
 
     public String getWalletId() {

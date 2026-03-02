@@ -1,6 +1,7 @@
 package br.com.jasaas.entity;
 
 import br.com.jasaas.enumeration.PixType;
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 import java.util.Date;
@@ -86,7 +87,7 @@ public final class Pix extends AsaasEntity<String> {
     }
 
     public void setCannotBeDeletedReason(String cannotBeDeletedReason) {
-        this.cannotBeDeletedReason = cannotBeDeletedReason;
+        this.cannotBeDeletedReason = StringUtils.removerAcentos(cannotBeDeletedReason);
     }
 
     public QrCode getQrCode() {
