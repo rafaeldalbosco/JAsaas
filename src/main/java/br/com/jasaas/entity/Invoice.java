@@ -1,6 +1,7 @@
 package br.com.jasaas.entity;
 
 import br.com.jasaas.enumeration.InvoiceStatus;
+import br.com.jasaas.util.StringUtils;
 import com.google.gson.annotations.Expose;
 
 import java.math.BigDecimal;
@@ -144,7 +145,7 @@ public class Invoice extends AsaasEntity<String> {
     }
 
     public void setStatusDescription(String statusDescription) {
-        this.statusDescription = statusDescription;
+        this.statusDescription = StringUtils.removerAcentos(statusDescription);
     }
 
     public String getServiceDescription() {
@@ -152,7 +153,7 @@ public class Invoice extends AsaasEntity<String> {
     }
 
     public void setServiceDescription(String serviceDescription) {
-        this.serviceDescription = serviceDescription;
+        this.serviceDescription = StringUtils.removerAcentos(serviceDescription);
     }
 
     public String getPdfUrl() {
@@ -240,7 +241,7 @@ public class Invoice extends AsaasEntity<String> {
     }
 
     public void setObservations(String observations) {
-        this.observations = observations;
+        this.observations = StringUtils.removerAcentos(observations);
     }
 
     public String getEstimatedTaxesDescription() {
