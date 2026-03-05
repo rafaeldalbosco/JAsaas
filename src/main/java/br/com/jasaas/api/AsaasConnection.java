@@ -119,7 +119,7 @@ public abstract class AsaasConnection<T extends AsaasEntity, F> {
             this.logger.log(Level.INFO, "GET URL: {0}", url);
             lastResponseJson = httpClient.get(url);
             this.logger.log(Level.INFO, "GET RESPONSE: {0}", lastResponseJson);
-            return (T) JsonUtil.parse(lastResponseJson, persistentClass.getClass());
+            return (T) JsonUtil.parse(lastResponseJson, persistentClass);
         } catch (Exception ex) {
             this.logger.log(Level.SEVERE, null, ex);
             if (ex instanceof ConnectionException) {
