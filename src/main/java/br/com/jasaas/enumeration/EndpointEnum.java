@@ -15,7 +15,7 @@ public enum EndpointEnum {
     PIX("pix/addressKeys"),
     SUBSCRIPTION("subscriptions"),
     SUBSCRIPTION_PAYMENT("subscriptions/{id}/payments"),
-    WEBHOOK("webhook");
+    WEBHOOK("webhooks");
 
     private String endpoint;
 

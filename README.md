@@ -210,18 +210,28 @@ Webhook para cobranças
 ------
 
 ```java
-// Busca a configuração de webhook para notificações de cobranças.
+// Lista os webhooks cadastrados.
 WebhookConfigConnection connWH = asaas.webhookConfig();
-WebhookConfig webhookConfig = connWH.get();
+List<WebhookConfig> webhooks = connWH.getAll();
         
-// Cria ou atualiza a configuração de webhook para notificações de cobranças.
+// Cria um novo webhook no padrão atual da API /v3/webhooks.
 WebhookConfigConnection connWH = asaas.webhookConfig();
-WebhookConfig webhookConfig = connWH.get();
+WebhookConfig webhookConfig = new WebhookConfig();
+webhookConfig.setName("WebhookAtrio");
 webhookConfig.setInterrupted(Boolean.FALSE);
 webhookConfig.setEnabled(Boolean.TRUE);
 webhookConfig.setApiVersion(3);
+webhookConfig.setSendType("SEQUENTIALLY");
+webhookConfig.setAuthToken("AuthToken");
 webhookConfig.setUrl("https://www.exemplo.com/webhook/asaas");
-connWH.updateWebhookConfig(webhookConfig);
+webhookConfig.setEmail("contato@empresa.com");
+webhookConfig.setEvents(Arrays.asList("PAYMENT_CREATED", "PAYMENT_RECEIVED"));
+WebhookConfig createdWebhook = connWH.createWebhookConfig(webhookConfig);
+
+// Atualiza um webhook existente.
+createdWebhook.setName("WebhookAtrioAtualizado");
+createdWebhook.setEvents(Arrays.asList("PAYMENT_AUTHORIZED"));
+connWH.updateWebhookConfig(createdWebhook);
 
 ```
 

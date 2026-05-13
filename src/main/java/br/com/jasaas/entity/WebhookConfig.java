@@ -7,24 +7,72 @@ package br.com.jasaas.entity;
 
 import com.google.gson.annotations.Expose;
 
+import java.util.List;
+
 /**
  *
  * @author atendimento
  */
 public class WebhookConfig extends AsaasEntity<String> {
 
+    @Expose(serialize = false)
+    private String id;
     @Expose
-    String url;
+    private String name;
     @Expose
-    String email;
+    private String url;
     @Expose
-    Boolean interrupted;
+    private String email;
     @Expose
-    Boolean enabled;
+    private Boolean interrupted;
     @Expose
-    Integer apiVersion = 3;
+    private Boolean enabled;
     @Expose
-    String authToken;
+    private Integer apiVersion = 3;
+    @Expose
+    private String authToken;
+    @Expose
+    private String sendType;
+    @Expose
+    private List<String> events;
+    @Expose(serialize = false)
+    private Boolean hasAuthToken;
+    @Expose(serialize = false)
+    private Integer penalizedRequestsCount;
+
+    /**
+     *
+     * @return Identificador unico do webhook
+     */
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id Identificador unico do webhook
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     *
+     * @return Nome configurado para o webhook
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @param name Nome configurado para o webhook
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
     /**
      *
      * @return URL que receberá as informações de sincronização
@@ -105,21 +153,80 @@ public class WebhookConfig extends AsaasEntity<String> {
         this.apiVersion = apiVersion;
     }
 
-    @Override
-    public String toString() {
-        return "WebhookConfig{" + "url=" + url + ", email=" + email + ", interrupted=" + interrupted + ", enabled=" + enabled + ", apiVersion=" + apiVersion + '}';
-    }
-
-    @Override
-    public String getId() {
-        return interrupted? "1" : null;
-    }
-
     public String getAuthToken() {
         return authToken;
     }
 
     public void setAuthToken(String authToken) {
         this.authToken = authToken;
+    }
+
+    /**
+     *
+     * @return Tipo de envio do webhook
+     */
+    public String getSendType() {
+        return sendType;
+    }
+
+    /**
+     *
+     * @param sendType Tipo de envio do webhook
+     */
+    public void setSendType(String sendType) {
+        this.sendType = sendType;
+    }
+
+    /**
+     *
+     * @return Eventos associados ao webhook
+     */
+    public List<String> getEvents() {
+        return events;
+    }
+
+    /**
+     *
+     * @param events Eventos associados ao webhook
+     */
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    /**
+     *
+     * @return Indica se o webhook possui token de autenticacao
+     */
+    public Boolean getHasAuthToken() {
+        return hasAuthToken;
+    }
+
+    /**
+     *
+     * @param hasAuthToken Indica se o webhook possui token de autenticacao
+     */
+    public void setHasAuthToken(Boolean hasAuthToken) {
+        this.hasAuthToken = hasAuthToken;
+    }
+
+    /**
+     *
+     * @return Quantidade de requisicoes penalizadas do webhook
+     */
+    public Integer getPenalizedRequestsCount() {
+        return penalizedRequestsCount;
+    }
+
+    /**
+     *
+     * @param penalizedRequestsCount Quantidade de requisicoes penalizadas do webhook
+     */
+    public void setPenalizedRequestsCount(Integer penalizedRequestsCount) {
+        this.penalizedRequestsCount = penalizedRequestsCount;
+    }
+
+    @Override
+    public String toString() {
+        return "WebhookConfig{" + "id=" + id + ", name=" + name + ", url=" + url + ", email=" + email + ", interrupted=" + interrupted + ", enabled=" + enabled + ", apiVersion=" + apiVersion + ", sendType=" + sendType + ", events=" + events + ", hasAuthToken=" + hasAuthToken + ", penalizedRequestsCount=" + penalizedRequestsCount + '}';
     }
 }
