@@ -6,12 +6,14 @@ import br.com.jasaas.util.JsonUtil;
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.*;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,7 +43,7 @@ public class ApacheHttpClientAdapter implements AdapterConnection {
                 throw new ConnectionException(status.getStatusCode(), status.getReasonPhrase(), loadMetaError(response));
             }
             HttpEntity entity = response.getEntity();
-            String retorno = EntityUtils.toString(entity);
+            String retorno = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             this.logger.log(Level.INFO, retorno);
             return retorno;
         } catch (IOException ex) {
@@ -61,7 +63,7 @@ public class ApacheHttpClientAdapter implements AdapterConnection {
                 throw new ConnectionException(status.getStatusCode(), status.getReasonPhrase(), loadMetaError(response));
             }
             HttpEntity entity = response.getEntity();
-            String retorno = EntityUtils.toString(entity);
+            String retorno = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             this.logger.log(Level.INFO, retorno);
             return retorno;
         } catch (IOException ex) {
@@ -75,7 +77,7 @@ public class ApacheHttpClientAdapter implements AdapterConnection {
         try {
             HttpPost httpPost = new HttpPost(url);
             httpPost.addHeader("access_token", accessToken);
-            StringEntity entity = new StringEntity(contentJSON);
+            StringEntity entity = new StringEntity(contentJSON, ContentType.APPLICATION_JSON);
             httpPost.setEntity(entity);
             CloseableHttpResponse response = httpclient.execute(httpPost);
             StatusLine status = response.getStatusLine();
@@ -84,7 +86,7 @@ public class ApacheHttpClientAdapter implements AdapterConnection {
                 throw new ConnectionException(status.getStatusCode(), status.getReasonPhrase(), loadMetaError(response));
             }
             HttpEntity entidade = response.getEntity();
-            String retorno = EntityUtils.toString(entidade);
+            String retorno = EntityUtils.toString(entidade, StandardCharsets.UTF_8);
             this.logger.log(Level.INFO, retorno);
             return retorno;
         } catch (IOException ex) {
@@ -98,7 +100,7 @@ public class ApacheHttpClientAdapter implements AdapterConnection {
         try {
             HttpPut httpPut = new HttpPut(url);
             httpPut.addHeader("access_token", accessToken);
-            StringEntity entity = new StringEntity(contentJSON);
+            StringEntity entity = new StringEntity(contentJSON, ContentType.APPLICATION_JSON);
             httpPut.setEntity(entity);
             CloseableHttpResponse response = httpclient.execute(httpPut);
             StatusLine status = response.getStatusLine();
@@ -107,7 +109,7 @@ public class ApacheHttpClientAdapter implements AdapterConnection {
                 throw new ConnectionException(status.getStatusCode(), status.getReasonPhrase(), loadMetaError(response));
             }
             HttpEntity entidade = response.getEntity();
-            String retorno = EntityUtils.toString(entidade);
+            String retorno = EntityUtils.toString(entidade, StandardCharsets.UTF_8);
             this.logger.log(Level.INFO, retorno);
             return retorno;
         } catch (IOException ex) {
@@ -119,7 +121,7 @@ public class ApacheHttpClientAdapter implements AdapterConnection {
     private MetaError loadMetaError(CloseableHttpResponse response) throws IOException {
         try {
             HttpEntity entity = response.getEntity();
-            String retorno = EntityUtils.toString(entity);
+            String retorno = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             return (MetaError) JsonUtil.parse(retorno, MetaError.class);
         } catch (IOException ex) {
             this.logger.log(Level.SEVERE, null, ex);
