@@ -14,7 +14,16 @@ import java.util.regex.Pattern;
  */
 public class JsonUtil {
 
-	private static GsonBuilder gsonBuilder = null;
+	// Uma instância por formato: o Gson é imutável, então ler um webhook com data BR
+	// não muda o formato usado pelo toJSON (nem por outra thread).
+	private static final Gson GSON = new GsonBuilder()
+			.excludeFieldsWithoutExposeAnnotation()
+			.setDateFormat("yyyy-MM-dd")
+			.create();
+	private static final Gson GSON_DATA_BR = new GsonBuilder()
+			.excludeFieldsWithoutExposeAnnotation()
+			.setDateFormat("dd/MM/yyyy")
+			.create();
 
 	public static Object parse(String json, Class clazz) {
 		return parse(json, clazz, false);
@@ -25,19 +34,9 @@ public class JsonUtil {
 	}
 
 	public static Object parse(String json, Class clazz, Boolean showLog, Boolean verificaDataBR) {
-		String dateFormat = "dd/MM/yyyy";
-		if (!verificaDataBR) {
-			dateFormat = "yyyy-MM-dd";
-		}
-		if (gsonBuilder == null) {
-			gsonBuilder = new GsonBuilder()
-					.excludeFieldsWithoutExposeAnnotation()
-					.setDateFormat(dateFormat);
-		}else{
-			gsonBuilder.setDateFormat(dateFormat);
-		}
+		Gson gson = verificaDataBR ? GSON_DATA_BR : GSON;
 		try {
-			return gsonBuilder.create().fromJson(json, clazz);
+			return gson.fromJson(json, clazz);
 		} catch (Exception e) {
 			if (showLog) {
                 Logger.getLogger(JsonUtil.class.getName()).log(Level.SEVERE, "Error parse gson.fromJson\n" + json, e);
@@ -48,21 +47,11 @@ public class JsonUtil {
 	}
 
     public static Object parse(String json, Type type) {
-        if (gsonBuilder == null) {
-            gsonBuilder = new GsonBuilder()
-                    .excludeFieldsWithoutExposeAnnotation()
-                    .setDateFormat("yyyy-MM-dd");
-        }
-        return gsonBuilder.create().fromJson(json, type);
+        return GSON.fromJson(json, type);
     }
 
     public static String toJSON(Object obj) {
-        if (gsonBuilder == null) {
-            gsonBuilder = new GsonBuilder()
-                    .excludeFieldsWithoutExposeAnnotation()
-                    .setDateFormat("yyyy-MM-dd");
-        }
-        return gsonBuilder.create().toJson(obj);
+        return GSON.toJson(obj);
     }
 
 	private static Boolean isDateBR(String json) {
